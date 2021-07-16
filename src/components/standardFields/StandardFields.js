@@ -2,13 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const DIV = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   .chartBox {
     display: flex;
     width: 100%;
     margin-bottom: 30px;
     flex-direction: column;
     position: relative;
-    padding: 10px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 15px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
@@ -277,11 +280,16 @@ const DIV = styled.div`
 
   .input-effect {
     float: left;
-    width: 27.33%;
+    width: 95%;
     margin: 40px 3%;
     position: relative;
     padding-left: 0;
     padding-right: 0;
+  }
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   @media (max-width: 600px) {
     .input-effect {
@@ -296,7 +304,7 @@ const DIV = styled.div`
   @media (min-width: 600px) and (max-width: 768px) {
     .input-effect {
       float: left;
-      width: 43.99%;
+      width: 95%;
       margin: 20px 3%;
       position: relative;
       padding-left: 0;
@@ -312,32 +320,32 @@ const StandardFields = () => {
         <div className="container-head">
           <h1>standard fields</h1>
         </div>
-        <div>
-          <div className="col input-effect">
+        <div className="input-box">
+          <div className="input-effect">
             <input className="effect-17" type="text" placeholder="" />
             <label>Border bottom</label>
             <span className="focus-border"></span>
           </div>
-          <div className="col input-effect">
+          <div className="input-effect">
             <input className="effect-19" type="text" placeholder="" />
             <label>Standatd input</label>
             <span className="focus-border">
               <i></i>
             </span>
           </div>
-          <div class="col input-effect">
+          <div class="input-effect">
             <input class="effect-10" type="text" placeholder="Border radius" />
             <span class="focus-bg"></span>
           </div>
-          <div class="col input-effect">
+          <div class="input-effect">
             <input class="effect-11" type="text" placeholder="Border rounded" />
             <span class="focus-bg"></span>
           </div>
-          <div class="col input-effect">
+          <div class="input-effect">
             <input class="effect-12" type="password" placeholder="password" />
             <span class="focus-bg"></span>
           </div>
-          <div className="col input-effect">
+          <div className="input-effect">
             <textarea
               className="effect-19"
               placeholder="textarea"
