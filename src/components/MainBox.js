@@ -4,6 +4,7 @@ import CheckboxAndRadioMain from "./standardFields/CheckboxAndRadioMain";
 import MainTagsInput from "./standardFields/MainTagsInput";
 import StandardFields from "./standardFields/StandardFields";
 import ToggleButtons from "./standardFields/ToggleButtons";
+import ValidationInputs from "./validationInputs/ValidationInputs";
 
 const DIV = styled.div``;
 
@@ -16,6 +17,7 @@ const MainBox = () => {
           <MainTagsInput />
           <CheckboxAndRadioMain />
           <ToggleButtons />
+          <ValidationInputs />
         </div>
         <div className="col-md-6 col-sm-12"></div>
       </div>
