@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import SelectBoxes from "./selectbox/SelectBoxes";
 import CheckboxAndRadioMain from "./standardFields/CheckboxAndRadioMain";
 import MainTagsInput from "./standardFields/MainTagsInput";
 import StandardFields from "./standardFields/StandardFields";
@@ -17,9 +18,11 @@ const MainBox = () => {
           <MainTagsInput />
           <CheckboxAndRadioMain />
           <ToggleButtons />
-          <ValidationInputs />
         </div>
-        <div className="col-md-6 col-sm-12"></div>
+        <div className="col-md-6 col-sm-12">
+          <ValidationInputs />
+          <SelectBoxes />
+        </div>
       </div>
     </DIV>
   );
