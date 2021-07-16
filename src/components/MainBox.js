@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CheckboxAndRadioMain from "./standardFields/CheckboxAndRadioMain";
 import MainTagsInput from "./standardFields/MainTagsInput";
 import StandardFields from "./standardFields/StandardFields";
+import ToggleButtons from "./standardFields/ToggleButtons";
 
 const DIV = styled.div``;
 
@@ -14,6 +15,7 @@ const MainBox = () => {
           <StandardFields />
           <MainTagsInput />
           <CheckboxAndRadioMain />
+          <ToggleButtons />
         </div>
         <div className="col-md-6 col-sm-12"></div>
       </div>
