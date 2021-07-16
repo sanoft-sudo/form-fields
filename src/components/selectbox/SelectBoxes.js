@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BasicSingleSelect from "./BasicSingleSelect";
 import SingleAsyncSelect from "./SingleAsyncSelect";
+import SingleCreatableSelect from "./SingleCreatableSelect";
 
 const Styles = styled.div`
   display: flex;
@@ -46,6 +47,7 @@ const Selectboxes = () => {
         </div>
         <BasicSingleSelect />
         <SingleAsyncSelect />
+        <SingleCreatableSelect />
       </div>
     </Styles>
   );
