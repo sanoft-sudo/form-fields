@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BasicMaltiSelect from "./BasicMultiSelect";
 import BasicSingleSelect from "./BasicSingleSelect";
+import MultiAsyncSelect from "./MultiAsyncSelect";
 import SingleAsyncSelect from "./SingleAsyncSelect";
 import SingleCreatableSelect from "./SingleCreatableSelect";
 
@@ -50,6 +51,7 @@ const Selectboxes = () => {
         <SingleAsyncSelect />
         <SingleCreatableSelect />
         <BasicMaltiSelect />
+        <MultiAsyncSelect />
       </div>
     </Styles>
   );
