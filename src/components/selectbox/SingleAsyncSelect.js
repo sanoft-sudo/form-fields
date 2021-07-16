@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Select from "react-select";
+import AsyncSelect from "react-select/async";
 
 const Styles = styled.div`
   display: flex;
@@ -28,15 +29,35 @@ const options = [
   { value: "next", label: "Next" }
 ];
 
-const BasicSingleSelect = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const SingleAsyncSelect = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const filterIncomingInput = (inputValue) => {
+    return options.filter((i) =>
+      i.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  };
+
+  const loadOptions = (inputValue, callback) => {
+    setTimeout(() => {
+      callback(filterIncomingInput(inputValue));
+    }, 1000);
+  };
+  const handleInputChange = (newValue) => {
+    const newInputValue = newValue.replace(/\W/g, "");
+    setInputValue(newInputValue);
+    return newInputValue;
+  };
+
   return (
     <Styles>
       <div className="select-wrapper">
-        <h1 className="sub-subTitle">Basic Single Select</h1>
-        <Select
-          defaultValue={selectedOption}
-          onChange={setSelectedOption}
+        <h1 className="sub-subTitle">Single Async Select</h1>
+        <AsyncSelect
+          cacheOptions
+          loadOptions={loadOptions}
+          defaultOptions
+          onInputChange={handleInputChange}
           options={options}
           styles={{
             singleValue: (base) => ({ ...base, color: "#fff" }),
@@ -77,4 +98,4 @@ const BasicSingleSelect = () => {
     </Styles>
   );
 };
-export default BasicSingleSelect;
+export default SingleAsyncSelect;
