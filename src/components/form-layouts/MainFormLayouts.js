@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BasicMaltiSelect from "./BasicMultiSelect";
-import BasicSingleSelect from "./BasicSingleSelect";
-import MultiAsyncSelect from "./MultiAsyncSelect";
-import MultiCreatableSelect from "./MultiCreatableSelect";
-import SingleAsyncSelect from "./SingleAsyncSelect";
-import SingleCreatableSelect from "./SingleCreatableSelect";
+import InlineForm from "./InlineForm";
 
 const Styles = styled.div`
   display: flex;
@@ -41,20 +36,16 @@ const Styles = styled.div`
   }
 `;
 
-const Selectboxes = () => {
+const MainFormLayouts = () => {
   return (
     <Styles>
       <div className="chartBox">
         <div className="container-head">
           <h1>Selectboxes</h1>
         </div>
-        <BasicSingleSelect />
-        <SingleAsyncSelect />
-        <SingleCreatableSelect />
-        <BasicMaltiSelect />
-        <MultiAsyncSelect />
+        <InlineForm />
       </div>
     </Styles>
   );
 };
-export default Selectboxes;
+export default MainFormLayouts;
