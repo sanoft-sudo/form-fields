@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import NumberFormat from "react-number-format";
-import RippleButton from "./RippleButton";
+import Button from "@material-ui/core/Button";
+
 const Styles = styled.div`
   background: rgba(0, 0, 0, 0.2);
   padding: 10px;
@@ -28,6 +29,8 @@ const Styles = styled.div`
     text-transform: uppercase;
     color: #fff;
   }
+
+  /* validation style */
   .name-success,
   .email-success,
   .phone-success {
@@ -144,6 +147,21 @@ const Styles = styled.div`
   .phone-success-icon {
     color: rgba(0, 255, 121, 0.9);
     display: ${({ isPhone }) => (isPhone.isLooksGood ? "block" : "none")};
+  }
+
+  /* submit button */
+  .submit-button {
+    width: 100px;
+    padding: 3px 10px;
+    text-transform: capitalize;
+    background: rgba(0, 255, 50, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+  }
+  .submit-button:hover {
+    background: rgba(0, 255, 50, 0.4);
   }
 `;
 
@@ -331,7 +349,11 @@ const InlneForm = () => {
           <div className="phone-success">Looks good!</div>
           <div className="phone-error">Phone number is not valid!</div>
         </div>
-        <button type="submit">on</button>
+        <div className="button-box">
+          <button type="submit" className="submit-button">
+            submit
+          </button>
+        </div>
         {/* <RippleButton type="submit" onClick={(e) => console.log(e)}>
           Submit
         </RippleButton> */}
