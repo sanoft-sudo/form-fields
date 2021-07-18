@@ -4,7 +4,7 @@ import NumberFormat from "react-number-format";
 import Button from "@material-ui/core/Button";
 
 const Styles = styled.div`
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 5px;
   .chartBox {
     display: flex;
@@ -192,7 +192,7 @@ const Styles = styled.div`
   }
 `;
 
-const InlneForm = () => {
+const BasicForm = () => {
   const [formFields, setFormFields] = useState({
     name: "",
     email: "",
@@ -300,14 +300,14 @@ const InlneForm = () => {
     <Styles isEmail={isEmail} isPhone={isPhone} isName={isName}>
       <div className="chartBox">
         <div className="container-head">
-          <h1>Inline form</h1>
+          <h1>Basic form</h1>
         </div>
         <form
           onSubmit={handleSubmit}
           className="row g-3 needs-validation"
           novalidate
         >
-          <div className="col-sm-4 ">
+          <div className="col-sm-12 ">
             <label htmlFor="validationCustom01" className="form-label">
               Full name
             </label>
@@ -331,7 +331,7 @@ const InlneForm = () => {
             <div className="name-error">This is required field!</div>
             <div className="name-toShort">Name to short!</div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-12">
             <label htmlFor="validationCustom02" className="form-label">
               Email
             </label>
@@ -354,7 +354,7 @@ const InlneForm = () => {
             <div className="email-success">Looks good!</div>
             <div className="email-error">Email is not valid!</div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-12">
             <label htmlFor="validationCustom02" className="form-label">
               Phone
             </label>
@@ -392,4 +392,4 @@ const InlneForm = () => {
     </Styles>
   );
 };
-export default InlneForm;
+export default BasicForm;

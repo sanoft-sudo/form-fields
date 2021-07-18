@@ -4,7 +4,7 @@ import NumberFormat from "react-number-format";
 import Button from "@material-ui/core/Button";
 
 const Styles = styled.div`
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 5px;
   .chartBox {
     display: flex;
@@ -46,6 +46,21 @@ const Styles = styled.div`
     outline-width: 0;
     color: #fff;
     font-size: 15px;
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: rgba(224, 217, 217, 0.4);
+      opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: rgba(224, 217, 217, 0.4);
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: rgba(224, 217, 217, 0.4);
+    }
   }
   .form-control:focus {
     border-color: #ced4da;
@@ -192,7 +207,7 @@ const Styles = styled.div`
   }
 `;
 
-const InlneForm = () => {
+const WithoutLabelForm = () => {
   const [formFields, setFormFields] = useState({
     name: "",
     email: "",
@@ -300,17 +315,14 @@ const InlneForm = () => {
     <Styles isEmail={isEmail} isPhone={isPhone} isName={isName}>
       <div className="chartBox">
         <div className="container-head">
-          <h1>Inline form</h1>
+          <h1>Without label form</h1>
         </div>
         <form
           onSubmit={handleSubmit}
           className="row g-3 needs-validation"
           novalidate
         >
-          <div className="col-sm-4 ">
-            <label htmlFor="validationCustom01" className="form-label">
-              Full name
-            </label>
+          <div className="col-sm-12 ">
             <div className="name">
               <input
                 type="text"
@@ -318,6 +330,7 @@ const InlneForm = () => {
                 id="validationCustom01"
                 onChange={(e) => handleNameChange(e)}
                 name="name"
+                placeholder="Name"
                 defaultValue={formFields?.name}
               />
               <span className="name-error-icon">
@@ -331,10 +344,7 @@ const InlneForm = () => {
             <div className="name-error">This is required field!</div>
             <div className="name-toShort">Name to short!</div>
           </div>
-          <div className="col-sm-4">
-            <label htmlFor="validationCustom02" className="form-label">
-              Email
-            </label>
+          <div className="col-sm-12">
             <div className="name">
               <input
                 type="text"
@@ -342,6 +352,7 @@ const InlneForm = () => {
                 id="validationCustom02"
                 onChange={(e) => handleEmailChange(e)}
                 name="email"
+                placeholder="Email"
                 defaultValue={formFields?.email}
               />
               <span className="email-error-icon">
@@ -354,10 +365,7 @@ const InlneForm = () => {
             <div className="email-success">Looks good!</div>
             <div className="email-error">Email is not valid!</div>
           </div>
-          <div className="col-sm-4">
-            <label htmlFor="validationCustom02" className="form-label">
-              Phone
-            </label>
+          <div className="col-sm-12">
             <div className="name">
               <NumberFormat
                 id="validationCustom02"
@@ -392,4 +400,4 @@ const InlneForm = () => {
     </Styles>
   );
 };
-export default InlneForm;
+export default WithoutLabelForm;
