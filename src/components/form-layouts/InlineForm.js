@@ -64,6 +64,87 @@ const Styles = styled.div`
   .phone-error {
     display: ${({ isPhone }) => (isPhone.isRequired ? "block" : "none")};
   }
+
+  input[name="email"]:focus,
+  input[name="email"]:target,
+  input[name="phone"]:focus,
+  input[name="phone"]:target {
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  input[name="name"],
+  input[name="name"]:focus {
+    border: ${({ isName }) =>
+      isName.isLooksGood
+        ? "1px solid rgba(0, 255, 121, 0.9);"
+        : isName.isToShort
+        ? "1px solid rgba(255, 0, 31, 1);"
+        : isName.isRequired
+        ? "1px solid rgba(255, 0, 31, 1);"
+        : "none"};
+  }
+  input[name="email"],
+  input[name="email"]:focus {
+    border: ${({ isEmail }) =>
+      isEmail.isLooksGood
+        ? "1px solid rgba(0, 255, 121, 0.9);"
+        : isEmail.isRequired
+        ? "1px solid rgba(255, 0, 31, 1);"
+        : "none"};
+  }
+
+  input[name="phone"],
+  input[name="phone"]:focus {
+    border: ${({ isPhone }) =>
+      isPhone.isLooksGood
+        ? "1px solid rgba(0, 255, 121, 0.9);"
+        : isPhone.isRequired
+        ? "1px solid rgba(255, 0, 31, 1);"
+        : "none"};
+  }
+  .name {
+    position: relative;
+  }
+  .name-error-icon,
+  .name-success-icon,
+  .email-error-icon,
+  .email-success-icon,
+  .phone-error-icon,
+  .phone-success-icon {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .name-error-icon {
+    color: rgba(255, 0, 31, 1);
+    display: ${({ isName }) =>
+      isName.isRequired || isName.isToShort ? "block" : "none"};
+  }
+  .name-success-icon {
+    color: rgba(0, 255, 121, 0.9);
+    display: ${({ isName }) => (isName.isLooksGood ? "block" : "none")};
+  }
+
+  .email-error-icon {
+    color: rgba(255, 0, 31, 1);
+    display: ${({ isEmail }) => (isEmail.isRequired ? "block" : "none")};
+  }
+  .email-success-icon {
+    color: rgba(0, 255, 121, 0.9);
+    display: ${({ isEmail }) => (isEmail.isLooksGood ? "block" : "none")};
+  }
+  .phone-error-icon {
+    color: rgba(255, 0, 31, 1);
+    display: ${({ isPhone }) => (isPhone.isRequired ? "block" : "none")};
+  }
+  .phone-success-icon {
+    color: rgba(0, 255, 121, 0.9);
+    display: ${({ isPhone }) => (isPhone.isLooksGood ? "block" : "none")};
+  }
 `;
 
 const InlneForm = () => {
@@ -178,18 +259,26 @@ const InlneForm = () => {
         className="row g-3 needs-validation"
         novalidate
       >
-        <div className="col-sm-4">
+        <div className="col-sm-4 ">
           <label htmlFor="validationCustom01" className="form-label">
             Full name
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationCustom01"
-            onChange={(e) => handleNameChange(e)}
-            name="name"
-            defaultValue={formFields?.name}
-          />
+          <div className="name">
+            <input
+              type="text"
+              className="form-control name"
+              id="validationCustom01"
+              onChange={(e) => handleNameChange(e)}
+              name="name"
+              defaultValue={formFields?.name}
+            />
+            <span className="name-error-icon">
+              <i className="far fa-times-circle"></i>
+            </span>
+            <span className="name-success-icon">
+              <i className="fas fa-check"></i>
+            </span>
+          </div>
           <div className="name-success">Looks good!</div>
           <div className="name-error">This is required field!</div>
           <div className="name-toShort">Name to short!</div>
@@ -198,14 +287,22 @@ const InlneForm = () => {
           <label htmlFor="validationCustom02" className="form-label">
             Email
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="validationCustom02"
-            onChange={(e) => handleEmailChange(e)}
-            name="email"
-            defaultValue={formFields?.email}
-          />
+          <div className="name">
+            <input
+              type="text"
+              className="form-control"
+              id="validationCustom02"
+              onChange={(e) => handleEmailChange(e)}
+              name="email"
+              defaultValue={formFields?.email}
+            />
+            <span className="email-error-icon">
+              <i className="far fa-times-circle"></i>
+            </span>
+            <span className="email-success-icon">
+              <i className="fas fa-check"></i>
+            </span>
+          </div>
           <div className="email-success">Looks good!</div>
           <div className="email-error">Email is not valid!</div>
         </div>
@@ -213,18 +310,26 @@ const InlneForm = () => {
           <label htmlFor="validationCustom02" className="form-label">
             Phone
           </label>
-          <NumberFormat
-            id="validationCustom02"
-            className="form-control"
-            format="+998 (##) ###-####"
-            allowEmptyFormatting
-            onChange={(e) => handlePhoneChange(e)}
-            name="phone"
-            defaultValue={formFields?.phone}
-          />
+          <div className="name">
+            <NumberFormat
+              id="validationCustom02"
+              className="form-control"
+              format="+998 (##) ###-####"
+              allowEmptyFormatting
+              onChange={(e) => handlePhoneChange(e)}
+              name="phone"
+              defaultValue={formFields?.phone}
+            />
+            <span className="phone-error-icon">
+              <i className="far fa-times-circle"></i>
+            </span>
+            <span className="phone-success-icon">
+              <i className="fas fa-check"></i>
+            </span>
+          </div>
 
           <div className="phone-success">Looks good!</div>
-          <div class="phone-error">Phone number is not valid!</div>
+          <div className="phone-error">Phone number is not valid!</div>
         </div>
         <button type="submit">on</button>
         {/* <RippleButton type="submit" onClick={(e) => console.log(e)}>
